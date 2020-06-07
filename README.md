@@ -53,7 +53,7 @@ feishu.send_alarm_message(feishu.user_id,
 
 - 测试效果
 
-![Alt text](./截屏2020-06-07 下午5.36.50.png)
+![alert_test](./截屏2020-06-07 下午5.36.50.png)
 
 - 真实接入zabbix之后的效果
 
