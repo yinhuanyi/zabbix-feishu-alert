@@ -53,7 +53,7 @@ feishu.send_alarm_message(feishu.user_id,
 
 - 测试效果
 
-![alert_test](./截屏2020-06-07 下午5.36.50.png)
+![alert_test](./alert_test.png)
 
 - 真实接入zabbix之后的效果
 
@@ -64,7 +64,7 @@ feishu.send_alarm_message(feishu.user_id,
 
 - 当值班人被@后，需要点击立即处理，立即处理会跳转到企业内部的运维平台，记录告警人的基本信息，例如：姓名，处理告警的时间等
 
-![Alt text](./截屏2020-06-07 下午5.47.19.png)
+![Alt text](./alert_ack_manager.png)
 
 
 ###  （二）介绍飞书机器人的创建
