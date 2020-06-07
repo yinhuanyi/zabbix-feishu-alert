@@ -7,7 +7,7 @@
 """
 
 import os
-from setuptools import  setup
+from setuptools import setup
 
 def package_data(pkg, roots=tuple()):
     data = []
@@ -28,10 +28,10 @@ setup(
     author_email = 'yinhuanyicn@gmail.com',
     url = 'https://github.com/yinhuanyi/zabbix-feishu-alert',
     license = "MIT",
-    version = '1.0.1',
+    version = '1.0.4',
     description = 'zabbix send alert message and graph to feishu robot',
-    long_description=long_description,
-    long_description_content_type="text/markdown",
+    long_description = long_description,
+    long_description_content_type = "text/markdown",
     packages = [
         'zabbix_feishu_alert',
     ],

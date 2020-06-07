@@ -10,7 +10,7 @@ import json
 
 import requests
 
-from zabbix_feishu_alert.message_base import FeishuBase
+from .message_base import FeishuBase
 
 
 
