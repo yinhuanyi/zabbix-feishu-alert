@@ -19,23 +19,19 @@ def package_data(pkg, roots=tuple()):
 
     return {pkg: data}
 
-
+with open("README.md", "r") as f:
+  long_description = f.read()
 
 setup(
-    # 包名称
-    name = 'zabbix-feishu-alart',
-    # 模块作者
+    name = 'zabbix-feishu-alert',
     author = 'Robby',
-    # 作者邮件
     author_email = 'yinhuanyicn@gmail.com',
-    # 官方站点
-    url = 'http://bbs.yhyblog.cn',
-    # 模块协议,
+    url = 'https://github.com/yinhuanyi/zabbix-feishu-alert',
     license = "MIT",
-    # 包版本
-    version = '1.0.0',
-    # 包的描述
+    version = '1.0.1',
     description = 'zabbix send alert message and graph to feishu robot',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     packages = [
         'zabbix_feishu_alert',
     ],
@@ -44,5 +40,5 @@ setup(
     ],
     dependency_links = [],
 
-    package_data = package_data("feishu_alert",),
+    package_data = package_data("zabbix_feishu_alert",),
 )
