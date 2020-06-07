@@ -28,7 +28,7 @@ setup(
     author_email = 'yinhuanyicn@gmail.com',
     url = 'https://github.com/yinhuanyi/zabbix-feishu-alert',
     license = "MIT",
-    version = '1.0.4',
+    version = '1.0.5',
     description = 'zabbix send alert message and graph to feishu robot',
     long_description = long_description,
     long_description_content_type = "text/markdown",
