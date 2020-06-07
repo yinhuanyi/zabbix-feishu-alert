@@ -23,7 +23,7 @@ def package_data(pkg, roots=tuple()):
 
 setup(
     # 包名称
-    name = 'zabbix_feishu_alart',
+    name = 'zabbix-feishu-alart',
     # 模块作者
     author = 'Robby',
     # 作者邮件
@@ -37,7 +37,7 @@ setup(
     # 包的描述
     description = 'zabbix send alert message and graph to feishu robot',
     packages = [
-        'feishu_alert',
+        'zabbix_feishu_alert',
     ],
     install_requires = [
         'requests',
