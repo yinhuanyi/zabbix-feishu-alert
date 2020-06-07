@@ -57,7 +57,7 @@ feishu.send_alarm_message(feishu.user_id,
 
 - 真实接入zabbix之后的效果
 
-![Alt text](./截屏2020-06-07 下午5.37.11.png)
+![Alt text](https://github.com/yinhuanyi/zabbix-feishu-alert/blob/master/alert_test.png)
 
 
 > **`(四)：点击[立即处理]按钮`**
