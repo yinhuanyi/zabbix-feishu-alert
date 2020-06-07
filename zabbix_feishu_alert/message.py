@@ -25,23 +25,3 @@ class FeishuMessage(FeishuBase):
         response = json.loads(request.content)['tenant_access_token']
 
         return response
-
-
-if __name__ == '__main__':
-    feishu = FeishuMessage('10.102.0.4',
-                           'Admin',
-                           'zabbix',
-                           '18670236750',
-                           36836,
-                           './',
-                           'cli_9e44d8e26dbb500d',
-                           '8X4jX9MLwg6AXIEVJh0lC8oeHNDBfbnd')
-
-    feishu.send_alarm_message(feishu.user_id,
-                              feishu.chat_id,
-                              feishu.tenant_access_token,
-                              feishu.image_key,
-                              "Zabbix Alert Title",
-                              "Zabbix Alert Content",
-                              38524,
-                              '10.102.0.11')
