@@ -150,7 +150,7 @@ class FeishuBase:
         return content['data']['image_key']
 
     # 发送告警消息
-    def send_alarm_message(self, user_id, chat_id, tenant_access_token, image_key, title, content, event_id, zabbix_ack_addr):
+    def send_alarm_message(self, title, content, event_id, zabbix_ack_addr):
         """
 
         :param user_id: user id
@@ -163,10 +163,11 @@ class FeishuBase:
         :param zabbix_ack_addr: your website for zabbix alert ack addr
         :return: None
         """
+
         send_url = "https://open.feishu.cn/open-apis/message/v4/send/"
-        headers = {"Authorization": "Bearer %s" % tenant_access_token, "Content-Type": "application/json"}
+        headers = {"Authorization": "Bearer %s" % self.tenant_access_token, "Content-Type": "application/json"}
         data = {
-            "chat_id": chat_id,
+            "chat_id": self.chat_id,
             "msg_type": "post",
             "content": {
                 "post": {
@@ -181,19 +182,20 @@ class FeishuBase:
                                 },
                                 {
                                     "tag": "at",
-                                    "user_id": user_id
+                                    "user_id": self.user_id
 
                                 },
                                 {
                                     "tag": "a",
                                     "text": "\n立即处理",
-                                    "href": "http://{}:8000/monitor/problem_ack/?event_id={}".format(zabbix_ack_addr,event_id)
+                                    # http://{}:8000/monitor/problem_ack/
+                                    "href": "{}?event_id={}".format(zabbix_ack_addr, event_id)
                                 },
                             ],
                             [
                                 {
                                     "tag": "img",
-                                    "image_key": image_key,
+                                    "image_key": self.image_key,
                                     "width": 1000,
                                     "height": 600
                                 }
@@ -207,21 +209,17 @@ class FeishuBase:
         requests.post(url=send_url, headers=headers, json=data)
 
     # 发送恢复消息
-    def send_recovery_message(self, user_id, chat_id, tenant_access_token, image_key, title, content):
-        """
+    def send_recovery_message(self, title, content):
 
-        :param user_id: user id
-        :param chat_id: chat id
-        :param tenant_access_token: feishu tenant_access_token
-        :param image_key: feishu image key
+        """
         :param title: zabbix alert title
         :param content: zabbix alert content
         :return: None
         """
         sendurl = "https://open.feishu.cn/open-apis/message/v4/send/"
-        headers = {"Authorization": "Bearer %s" % tenant_access_token, "Content-Type": "application/json"}
+        headers = {"Authorization": "Bearer %s" % self.tenant_access_token, "Content-Type": "application/json"}
         data = {
-            "chat_id": chat_id,
+            "chat_id": self.chat_id,
             "msg_type": "post",
             "content": {
                 "post": {
@@ -236,14 +234,14 @@ class FeishuBase:
                                 },
                                 {
                                     "tag": "at",
-                                    "user_id": user_id
+                                    "user_id": self.user_id
 
                                 },
                             ],
                             [
                                 {
                                     "tag": "img",
-                                    "image_key": image_key,
+                                    "image_key": self.image_key,
                                     "width": 1000,
                                     "height": 600
                                 }
@@ -256,21 +254,17 @@ class FeishuBase:
         requests.post(url=sendurl, headers=headers, json=data)
 
     # 发送确认消息
-    def send_ack_message(self, user_id, chat_id, tenant_access_token, image_key, title, content):
+    def send_ack_message(self, title, content):
         """
 
-        :param user_id: user id
-        :param chat_id: chat id
-        :param tenant_access_token: feishu tenant_access_token
-        :param image_key: image key
         :param title: zabbix alert title
         :param content: zabbix alert content
         :return: None
         """
         sendurl = "https://open.feishu.cn/open-apis/message/v4/send/"
-        headers = {"Authorization": "Bearer %s" % tenant_access_token, "Content-Type": "application/json"}
+        headers = {"Authorization": "Bearer %s" % self.tenant_access_token, "Content-Type": "application/json"}
         data = {
-            "chat_id": chat_id,
+            "chat_id": self.chat_id,
             "msg_type": "post",
             "content": {
                 "post": {
@@ -285,13 +279,13 @@ class FeishuBase:
                                 },
                                 {
                                     "tag": "at",
-                                    "user_id": user_id
+                                    "user_id": self.user_id
                                 },
                             ],
                             [
                                 {
                                     "tag": "img",
-                                    "image_key": image_key,
+                                    "image_key": self.image_key,
                                     "width": 1000,
                                     "height": 600
                                 }

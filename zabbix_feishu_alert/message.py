@@ -25,3 +25,23 @@ class FeishuMessage(FeishuBase):
         response = json.loads(request.content)['tenant_access_token']
 
         return response
+
+
+if __name__ == '__main__':
+    feishu = FeishuMessage('10.102.0.4',
+                           'Admin',
+                           'zabbix',
+                           '18670236750',
+                           36836,
+                           './',
+                           'cli_9e44d8e26dbb500d',
+                           '8X4jX9MLwg6AXIEVJh0lC8oeHNDBfbnd')
+
+    feishu.send_alarm_message("Zabbix Alert Title",
+                              "Zabbix Alert Content",
+                              38524,
+                              'http://10.102.0.11:8000/monitor/problem_ack/')
+
+    feishu.send_recovery_message("Zabbix Recovery Title", "Zabbix Recovery Title")
+
+    feishu.send_ack_message("Zabbix Ack Title", "Zabbix Ack Title")

@@ -36,17 +36,21 @@ feishu = FeishuMessage('100.99.1.3',
                        'cli_9e44d8e26dbb500d',
                        '8X4jX9MLwg6AXIEVJh0lC8oeHNDBfbnd')
 
-# 第五个和第六个参数为：发送告警信息的时候，需要获取到zabbix中的title信息和message信息
-# 第七个参数：38524是此次告警的event_id
-# 第八个参数：100.112.2.11是[立即处理]按钮的调整地址
-feishu.send_alarm_message(feishu.user_id,
-                          feishu.chat_id,
-                          feishu.tenant_access_token,
-                          feishu.image_key,
-                          "Zabbix Alert Title",
+# 第一个和第二个参数为：发送告警信息的时候，需要获取到zabbix中的title信息和message信息
+# 第三个参数：38524是此次告警的event_id
+# 第四个参数：http://100.112.2.11:8000/monitor/problem_ack/是[立即处理]按钮发送ACK消息webhook的地址
+feishu.send_alarm_message("Zabbix Alert Title",
                           "Zabbix Alert Content",
                           38524,
-                          '100.112.2.11')
+                          'http://100.112.2.11:8000/monitor/problem_ack/')
+
+# 发送确认告警消息
+feishu.send_ack_message("Zabbix Ack Title", 
+                        "Zabbix Ack Title")
+
+# 发送恢复告警消息
+feishu.send_recovery_message("Zabbix Recovery Title", 
+                             "Zabbix Recovery Title")
 ```
 
 > **`(三)：告警效果`**
