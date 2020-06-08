@@ -46,11 +46,11 @@ feishu.send_alarm_message("Zabbix Alert Title",
 
 # 发送确认告警消息
 feishu.send_ack_message("Zabbix Ack Title", 
-                        "Zabbix Ack Title")
+                        "Zabbix Content Title")
 
 # 发送恢复告警消息
 feishu.send_recovery_message("Zabbix Recovery Title", 
-                             "Zabbix Recovery Title")
+                             "Zabbix Content Title")
 ```
 
 > **`(三)：告警效果`**
