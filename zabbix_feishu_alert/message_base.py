@@ -110,11 +110,11 @@ class FeishuBase:
             # 拼接图片路径
             local_time_str = datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
             graph_name = 'zabbix_' + local_time_str + '.png'
-            # MEDIA_DIR = os.path.join(data_dir, 'media')
+
             graph_path = os.path.join(data_dir, graph_name)
 
             # 使用绝对路径保存图片，二进制写入
-            with open(graph_name, 'wb', ) as f:
+            with open(graph_path, 'wb', ) as f:
                 f.write(graph_response.content)
 
             # 返回图片名称
